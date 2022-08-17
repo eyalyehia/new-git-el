@@ -1,12 +1,12 @@
 import React from 'react'
-import {CenterComp} from './movieComp/CenterComp'
+import Home from './Router/home'
 
 
 function App() {
   return (
     <div>
             
-            <CenterComp />
+            <Home />
     </div>
   )
 }
