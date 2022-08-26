@@ -1,10 +1,18 @@
 import React from 'react'
+import { ItemTask } from './itemTask'
 
-export const AddTask = () => {
+export const AddTask = (props) => {
   return (
+    
     <div className='container shadow text-center w-25 overflow-hidden'>
-        <button className='btn btn-danger float-end'>X</button>
-        <h4>Go gome -17:00</h4>
+         
+      { props.temp_ar.map(item => {
+         return(
+          <ItemTask removeTask = {props.removeTask} task_ar item ={item} key ={item.id} />
+         )
+      })}
+
+        
     </div>
   )
 }
