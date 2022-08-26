@@ -1,12 +1,13 @@
 import React from 'react'
-import Home from './Router/home'
+import { DoApi } from './comp/doApi'
+
 
 
 function App() {
   return (
     <div>
-            
-            <Home />
+                 
+     <DoApi/>     
     </div>
   )
 }
