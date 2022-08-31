@@ -1,15 +1,12 @@
-import React from 'react'
-import { DoApi } from './comp/doApi'
-
-
+import './App.css';
+import AppFruits from './comps/appFruits';
 
 function App() {
   return (
-    <div>
-                 
-     <DoApi/>     
+    <div className="App">
+      <AppFruits />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
