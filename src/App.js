@@ -1,10 +1,10 @@
 import './App.css';
-import AppFruits from './comps/appFruits';
+import { Search } from './comp/search';
 
 function App() {
   return (
     <div className="App">
-      <AppFruits />
+      <Search />
     </div>
   );
 }
