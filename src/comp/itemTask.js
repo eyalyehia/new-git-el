@@ -6,8 +6,8 @@ export const ItemTask = (props) => {
     <div className='shadow my-2 p-2'>
       <button onClick={() => {
         props.removeTask(id)
-      }} className='btn btn-danger float-end'>X</button>
-        <h4>{name} - {time}</h4>
+      }} className='btn btn-danger float-sm-end'>X</button>
+        <h4><i>{name} - {time}</i></h4>
     </div>
   )
 }

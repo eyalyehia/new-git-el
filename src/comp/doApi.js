@@ -2,30 +2,43 @@ import React, { useState } from 'react'
 import { AddTask } from './addTask'
 import { InputTask } from './inputTask'
 import {sortBy} from "lodash"
+import { useEffect } from 'react'
 
 export const DoApi = () => {
 let [temp_ar,SetTemp_ar] = useState([]);
 
+
+useEffect(() => {
+  if(localStorage["task"]){
+    SetTemp_ar(JSON.parse(localStorage["task"]))
+  }
+// localStorage["task"] ? SetTemp_ar(JSON.parse(localStorage["task"])): temp_ar;
+},[])
+
 const taskAdd = (_itemTask) => {
   let sort_ar = [...temp_ar,_itemTask]
   sort_ar = sortBy(sort_ar,"time")
-  SetTemp_ar(sort_ar)
+  saveLocal(sort_ar)
 
 }
 
 const removeTemp = () => {
-  SetTemp_ar([])
+  saveLocal([])
 }
 
 const removeTask = (_id) => {
   let task_ar = temp_ar.filter(item => item.id != _id)
-  SetTemp_ar(task_ar)
+  saveLocal(task_ar)
+}
+
+const saveLocal = (_ar) => {
+localStorage.setItem("task", JSON.stringify(_ar))
+SetTemp_ar(_ar)
 }
 
   return (
-    <div>
+    <div className='mt-4'>
         <InputTask taskAdd ={taskAdd}  removeTemp = {removeTemp}/>
-        <h3 className='mx-auto w-25'>Task you added:</h3>
         <AddTask temp_ar = {temp_ar} removeTask = {removeTask}/>
     </div>
   )
